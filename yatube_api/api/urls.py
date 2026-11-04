@@ -9,13 +9,13 @@ from .views import (
     PostViewSet,
 )
 
-router = DefaultRouter()
-router.register('posts', PostViewSet, basename='post')
-router.register('groups', GroupViewSet, basename='group')
+v1_router = DefaultRouter()
+v1_router.register('posts', PostViewSet, basename='post')
+v1_router.register('groups', GroupViewSet, basename='group')
 
 urlpatterns = [
     path('api-token-auth/', auth_views.obtain_auth_token),
-    path('', include(router.urls)),
+    path('', include(v1_router.urls)),
     path(
         'posts/<int:post_id>/comments/',
         CommentListCreateView.as_view(),
