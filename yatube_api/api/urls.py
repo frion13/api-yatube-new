@@ -18,6 +18,6 @@ v1_router.register(
 )
 
 urlpatterns = [
-    path('api-token-auth/', auth_views.obtain_auth_token),
-    path('', include(v1_router.urls)),
+    path('v1/api-token-auth/', auth_views.obtain_auth_token),
+    path('v1/', include(v1_router.urls)),
 ]
